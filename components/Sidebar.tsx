@@ -84,7 +84,6 @@ const NAV_ITEMS: NavItem[] = [
   { href: '/', label: 'Home', icon: IconHome },
   { href: '/leverage', label: 'Leverage', icon: IconLeverage },
   { href: '/trade', label: 'Terminal', icon: IconTerminal, matchPrefix: true },
-  { href: '/profile', label: 'Profile', icon: IconProfile },
 ]
 
 // ─── "How it works" modal ────────────────────────────────
