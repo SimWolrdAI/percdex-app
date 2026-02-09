@@ -20,7 +20,7 @@ export async function GET(request: NextRequest) {
   if (mint) {
     try {
       const resp = await fetch(`${PUMP_API}/coins/${mint}`, {
-        next: { revalidate: 10 },
+        cache: 'no-store',
       })
       if (!resp.ok) {
         return NextResponse.json(null, { status: resp.status })
@@ -40,7 +40,7 @@ export async function GET(request: NextRequest) {
       const timeframe = searchParams.get('timeframe') || '5'
       const resp = await fetch(
         `${PUMP_API}/candlesticks/${candles}?offset=${offset}&limit=${limit}&timeframe=${timeframe}`,
-        { next: { revalidate: 15 } }
+        { cache: 'no-store' }
       )
       if (!resp.ok) {
         return NextResponse.json(null, { status: resp.status })
