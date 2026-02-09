@@ -1,26 +1,97 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0f0f0f;
+  --foreground: #ededed;
+  --purple-primary: #8b5cf6;
+  --purple-dark: #6d28d9;
+  --purple-glow: rgba(139, 92, 246, 0.15);
+  --sidebar-bg: #111111;
+  --card-bg: #161616;
+  --card-border: #222222;
+  --card-hover: #1e1e1e;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-success: #22c55e;
+  --color-danger: #ef4444;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Wallet adapter overrides — purple theme */
+.wallet-adapter-button {
+  background: linear-gradient(135deg, #7c3aed, #6d28d9) !important;
+  border-radius: 12px !important;
+  font-weight: 600 !important;
+}
+.wallet-adapter-button:hover {
+  background: linear-gradient(135deg, #6d28d9, #5b21b6) !important;
+}
+.wallet-adapter-modal-wrapper {
+  background-color: #161616 !important;
+  border: 1px solid #333 !important;
+  border-radius: 16px !important;
+}
+.wallet-adapter-modal-title {
+  color: #fff !important;
+}
+
+/* Purple glow accents */
+.glow-purple {
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.1), 0 0 60px rgba(139, 92, 246, 0.05);
+}
+
+/* Token card hover */
+.token-card {
+  transition: all 0.15s ease;
+}
+.token-card:hover {
+  background: var(--card-hover);
+  border-color: #8b5cf640;
+  transform: translateY(-1px);
+}
+
+/* Bonding curve progress bar */
+.bonding-bar {
+  background: linear-gradient(90deg, #7c3aed, #a855f7);
+}
+
+/* Filter pill active */
+.filter-pill-active {
+  background: linear-gradient(135deg, #7c3aed, #6d28d9);
+  color: white;
+}
+
+/* Hide scrollbar on horizontal scroll */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

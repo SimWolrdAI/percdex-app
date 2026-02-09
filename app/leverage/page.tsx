@@ -6,8 +6,7 @@ import { TopBar } from '@/components/TopBar'
 import { TokenGrid } from '@/components/TokenGrid'
 import { seedMockToken } from '@/lib/mockToken'
 
-export default function Home() {
-  // Seed mock PercDex token on first load
+export default function LeveragePage() {
   useEffect(() => {
     seedMockToken().catch(console.error)
   }, [])
@@ -18,9 +17,10 @@ export default function Home() {
       <div className="ml-[200px]">
         <TopBar />
         <main className="px-6 py-6">
-          <TokenGrid />
+          <TokenGrid mode="leverage" />
         </main>
       </div>
     </div>
   )
 }
+
